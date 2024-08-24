@@ -1,7 +1,7 @@
 require('colors');
 require('dotenv').config();
 const axios = require('axios');
-const logResult = require('./result_message');
+const logResult = require('./result-message');
 
 const username = process.env.BITBUCKET_USERNAME;
 const password = process.env.BITBUCKET_PASS; //? Or access token if using OAuth
