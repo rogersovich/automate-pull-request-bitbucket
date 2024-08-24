@@ -59,9 +59,9 @@ npm install
          ]
        }
 
-4. After that just fill the env value
+4. Fill the **.env** value
    
-5. After that open file **automate-pull-request.js**
+5. Open file **automate-pull-request.js**
    
 6. Search code **`const branches = []; //? Replace with your branch names`**
    - Then fill your branch names
@@ -74,6 +74,12 @@ To start the bot, run:
 ```bash 
 node automate-pull-request.js
 ```
+
+## Donations
+
+If you like this project, you can make a donation using the following payments
+
+[Saweria ku](https://saweria.co/rogersovich) (Support me 💙)
 
 ## License
 
