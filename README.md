@@ -2,30 +2,76 @@
 
 this project i create bcz im lazy for pull request 🤯
 
-## How to use
+## Setup
 
-1. Node js Requirement  min 14
-2. Install library first
-`npm install colors dotenv axios`
-3. Hit npm install first 
-`npm install`
-4. Rename .env.example to .env
-5. How to get **Bitbucket repository slug and owner**
-Go to your project repository in bitbucket then find the url
-The url look like this:
-`https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/`
-6. How to get **Bitbucket Reviewer UID and name**
-Go to `https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/pull-requests/new`
-Then  *F12* or *Right Click and Inspect Element*
-After that go to *Network* and search request call **/recommended-reviewers** and go to tab **Response**
+### Prerequisites
 
-![Reviewer Response](reviewer-response.png)
+- [Node.js](https://nodejs.org/) (version 14 or later)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-7. After that just fill the env value
-8. After that open file **automate-pull-request.js**
-9. Search code `const branches = []; //? Replace with your branch names`
-Then fill your branch names
-Example: `const branches = ['branch-1', 'branch-2'];`
-10. After your setup finished, open your terminal
-11. Hit command `node automate-pull-request.js`
-12. Congratulations 🎉
+### Installations
+
+1. **Clone the repository:**
+
+```bash 
+git clone https://github.com/rogersovich/automate-pull-request-bitbucket.git
+```
+
+2. **Navigate to the project directory:**
+
+    ```bash
+    cd automate-pull-request-bitbucket
+    ```
+
+3. **Install dependencies**
+
+```bash 
+npm install colors dotenv axios
+```
+
+```bash 
+npm install
+```
+
+### Configuration
+
+1. **Rename a `.env.example` file** to **`.env`** in the root directory of the project.
+   
+2. How to get **Bitbucket repository slug and owner**
+- Go to your project repository in bitbucket then find the url
+- The url look like this:
+- `https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/`
+  
+3. How to get **Bitbucket Reviewer UID and name**
+- Go to `https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/pull-requests/new`
+- Then  *F12* or *Right Click and Inspect Element*
+- After that go to *Network* and search request call **/recommended-reviewers** and go to tab **Response**
+- The **Response** object will be like this:
+  - ```bash
+    {
+      "suggested_reviewers": [
+          {
+              "full_name": "example_reviewer_name",
+              "aid": "xxxx-xxx-xxx-xxxx",
+              "avatar_url": "xxxxxxxxxx",
+              "uuid": "example_reviewer_uuid"
+          }
+      ]
+    }
+  ```
+
+1. After that just fill the env value
+   
+2. After that open file **automate-pull-request.js**
+   
+3. Search code `const branches = []; //? Replace with your branch names`
+- Then fill your branch names
+- Example: `const branches = ['branch-1', 'branch-2'];`
+
+### Running the Bot
+
+To start the bot, run:
+
+```bash 
+node automate-pull-request.js
+```
