@@ -41,7 +41,7 @@ npm install
    - Go to your project repository in bitbucket then find the url
    - The url look like this:
      - **`https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/`**
-   - Copy and Paste to your **.env**
+   - Copy and Paste the value **BITBUCKET_REPO_OWNER** and **BITBUCKET_REPO_SLUG** to your **.env**
   
 3. How to get **Bitbucket Reviewer UID and name**
    - Go to **`https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/pull-requests/new`**
@@ -59,7 +59,7 @@ npm install
              }
          ]
        }
-    - Copy and Paste to your **.env**
+    - Copy and Paste the value **full_name** and **uuid** to your **.env**
 
 4. Finished filling in the remaining files **.env** value
    
