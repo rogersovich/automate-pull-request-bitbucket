@@ -79,11 +79,7 @@ async function createPullRequest(branch) {
           },
         },
         close_source_branch: true, // Automatically deletes the source branch after the pull request is merged
-        reviewers: [
-          {
-            uuid: reviewerUuid,
-          },
-        ],
+        reviewers: reviewerUuid ? [{ uuid: reviewerUuid }] : [],
         description: description || `No commit messages found for ${branch}`,
       },
       {
