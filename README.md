@@ -57,7 +57,7 @@ npm install
                  "uuid": "example_reviewer_uuid"
              }
          ]
-       }```
+       }
 
 4. After that just fill the env value
    
