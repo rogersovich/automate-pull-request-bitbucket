@@ -40,11 +40,11 @@ npm install
 2. How to get **Bitbucket repository slug and owner**
    - Go to your project repository in bitbucket then find the url
    - The url look like this:
-   - `https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/`
+   - **`https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/`**
   
 3. How to get **Bitbucket Reviewer UID and name**
-   - Go to `https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/pull-requests/new`
-   - Then  *F12* or *Right Click and Inspect Element*
+   - Go to **`https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/pull-requests/new`**
+   - Then  **F12** or **Right Click and Inspect Element**
    - After that go to *Network* and search request call **/recommended-reviewers** and go to tab **Response**
    - The **Response** object will be like this:
    - ```bash
@@ -63,9 +63,9 @@ npm install
    
 5. After that open file **automate-pull-request.js**
    
-6. Search code `const branches = []; //? Replace with your branch names`
+6. Search code **`const branches = []; //? Replace with your branch names`**
    - Then fill your branch names
-   - Example: `const branches = ['branch-1', 'branch-2'];`
+   - Example: **`const branches = ['branch-1', 'branch-2'];`**
 
 ### Running the Bot
 
@@ -74,3 +74,7 @@ To start the bot, run:
 ```bash 
 node automate-pull-request.js
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
