@@ -18,6 +18,7 @@ The url look like this:
 Go to `https://bitbucket.org/{BITBUCKET_REPO_OWNER}/{BITBUCKET_REPO_SLUG}/pull-requests/new`
 Then  *F12* or *Right Click and Inspect Element*
 After that go to *Network* and search request call **/recommended-reviewers** and go to tab **Response**
+![Reviewer Response](reviewer-response.png)
 7. After that just fill the env value
 8. After that open file **automate-pull-request.js**
 9. Search code `const branches = []; //? Replace with your branch names`
