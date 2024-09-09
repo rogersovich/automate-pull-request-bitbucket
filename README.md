@@ -71,9 +71,9 @@ npm install
      - Then fill your branch names
      - Example: **`const branches = ['branch-1', 'branch-2'];`**
 2. Use Excel export set branches
-  - Open file **filter-export-task.js**
-  - Prepare yout excel file export
-  - Rename into **LIST_TASK.xlsx**
+   - Open file **filter-export-task.js**
+   - Prepare yout excel file export
+   - Rename into **LIST_TASK.xlsx**
 
 ### Running the Bot
 
