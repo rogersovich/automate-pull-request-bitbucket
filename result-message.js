@@ -12,7 +12,7 @@ function logResult(username, repoName, projectName, reviewerName, branches) {
   console.log(`🤴 Reviewer     : ${reviewerName}`.yellow)
   console.log(`🏠 Dest Branch  : Passed\n`.yellow) //Destination Branch
 
-  console.log(`🌿 List Branch:`.blue)
+  console.log(`🌿 List Branch Pull Requested:`.blue)
   branches.forEach((branch, index) => {
     console.log(`${index + 1}. ${branch}`);
   });

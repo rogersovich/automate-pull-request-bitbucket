@@ -14,6 +14,7 @@ const branches = []; //? Replace with your branch names
 const reviewerUuid = process.env.BITBUCKET_REVIEWER_UID; //? reviewer's UUID
 const reviewerName = process.env.BITBUCKET_REVIEWER_NAME; //? Reviewer Name
 
+//!  Do not edit below
 let list_branch_pulled = []
 
 async function branchExists(branch) {
