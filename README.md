@@ -62,19 +62,25 @@ npm install
     - Copy and Paste the value **full_name** and **uuid** to your **.env**
 
 4. Finished filling in the remaining files **.env** value
-   
-5. Open file **automate-pull-request.js**
-   
-6. Search code **`const branches = []; //? Replace with your branch names`**
-   - Then fill your branch names
-   - Example: **`const branches = ['branch-1', 'branch-2'];`**
+
+### Choose Category
+
+1. Use Manual set branches
+   - Open file **index.js**
+   - Search code **`const branches = []; //? Replace with your branch names`**
+     - Then fill your branch names
+     - Example: **`const branches = ['branch-1', 'branch-2'];`**
+2. Use Excel export set branches
+  - Open file **filter-export-task.js**
+  - Prepare yout excel file export
+  - Rename into **LIST_TASK.xlsx**
 
 ### Running the Bot
 
 To start the bot, run:
 
 ```bash 
-node automate-pull-request.js
+node index.js
 ```
 
 ## Donations

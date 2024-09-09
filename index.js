@@ -17,6 +17,7 @@ const reviewerName = process.env.BITBUCKET_REVIEWER_NAME; //? Reviewer Name
 
 //!  Do not edit below
 let list_branch_pulled = []
+let temp_list_branch_pulled = []
 
 async function branchExists(branch) {
   try {
@@ -32,7 +33,10 @@ async function branchExists(branch) {
     return response.status === 200;
   } catch (error) {
     if (error.response && error.response.status === 404) {
-      list_branch_pulled.push(`${branch} (Skipped)`)
+      const findBranch = temp_list_branch_pulled.find((item) => item.code == branch)
+      const branchResult = `${branch} - ${findBranch.title}` || title
+      //* Branch does not exist
+      list_branch_pulled.push(`${branchResult} (Skipped)`)
 
       console.warn(`Branch '${branch}' does not exist.`.yellow);
     } else {
@@ -93,7 +97,11 @@ async function createPullRequest(branch) {
     );
 
     const { source, title } = response.data
-    list_branch_pulled.push(source.branch.name || title)
+    const branchCode = source.branch.name || null
+    const findBranch = temp_list_branch_pulled.find((item) => item.code == branchCode)
+    const branchResult = `${branchCode} - ${findBranch.title}` || title
+
+    list_branch_pulled.push(branchResult)
 
     console.log(`Pull request created for branch: ${branch}`.green);
   } catch (error) {
@@ -103,10 +111,11 @@ async function createPullRequest(branch) {
 
 async function bulkCreatePullRequests() {
   const USE_EXCEL = process.env.USE_EXCEL
-
+  
   let filteredBranches =  []
   if (USE_EXCEL == 'Y') {
     filteredBranches = await getFilteredBranches()
+    temp_list_branch_pulled = filteredBranches
   }else{
     filteredBranches = branches
 

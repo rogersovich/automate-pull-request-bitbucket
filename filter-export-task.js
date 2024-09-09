@@ -6,7 +6,7 @@ async function getFilteredBranches() {
   // Ubah dengan file excel mu
   let file;
   try {
-    file = await fs.readFileSync('LIST_TASKss.xlsx');
+    file = await fs.readFileSync('LIST_TASK.xlsx');
   } catch (error) {
     console.log('⚠️  Error reading the file: LIST_TASK.xlsx')
     process.exit(1)
