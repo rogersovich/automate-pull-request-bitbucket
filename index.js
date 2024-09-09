@@ -2,6 +2,7 @@ require('colors');
 require('dotenv').config();
 const axios = require('axios');
 const logResult = require('./result-message');
+const { getFilteredBranches } = require('./filter-export-task');
 
 const username = process.env.BITBUCKET_USERNAME;
 const password = process.env.BITBUCKET_PASS; //? Or access token if using OAuth
@@ -101,9 +102,23 @@ async function createPullRequest(branch) {
 }
 
 async function bulkCreatePullRequests() {
-  for (const branch of branches) {
-    if (branch && await branchExists(branch)) {
-      await createPullRequest(branch);
+  const USE_EXCEL = process.env.USE_EXCEL
+
+  let filteredBranches =  []
+  if (USE_EXCEL == 'Y') {
+    filteredBranches = await getFilteredBranches()
+  }else{
+    filteredBranches = branches
+
+    if(filteredBranches.length == 0){
+      console.log('⚠️  No branches found. Exiting...')
+      process.exit(1)
+    }
+  }
+
+  for (const branch of filteredBranches) {
+    if (branch.code && await branchExists(branch.code)) {
+      await createPullRequest(branch.code);
     }
   }
       
