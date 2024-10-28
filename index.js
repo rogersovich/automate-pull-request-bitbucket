@@ -67,6 +67,7 @@ async function getCommitMessages(branch) {
 }
 
 async function createPullRequest(branch) {
+  const USE_EXCEL = process.env.USE_EXCEL
   const description = await getCommitMessages(branch);
 
   try {
@@ -96,10 +97,10 @@ async function createPullRequest(branch) {
       }
     );
 
-    const { source, title } = response.data
-    const branchCode = source.branch.name || null
-    const findBranch = temp_list_branch_pulled.find((item) => item.code == branchCode)
-    const branchResult = `${branchCode} - ${findBranch.title}` || title
+    const response_data = response.data
+    const branchCode = response_data?.source.branch.name || null
+    const findBranch = USE_EXCEL == 'Y' ? temp_list_branch_pulled.find((item) => item.code == branchCode) : branches.find((item) => item == branchCode)
+    const branchResult = USE_EXCEL == 'Y' ? `${branchCode} - ${findBranch?.title || response_data?.title}` : `${branchCode}`
 
     list_branch_pulled.push(branchResult)
 
@@ -126,8 +127,9 @@ async function bulkCreatePullRequests() {
   }
 
   for (const branch of filteredBranches) {
-    if (branch.code && await branchExists(branch.code)) {
-      await createPullRequest(branch.code);
+    const branch_code = USE_EXCEL == 'Y' ? branch.code : branch
+    if (branch_code && await branchExists(branch_code)) {
+      await createPullRequest(branch_code);
     }
   }
       
