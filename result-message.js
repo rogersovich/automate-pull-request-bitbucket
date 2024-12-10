@@ -6,7 +6,7 @@ function logResult(username, repoName, projectName, reviewerName, branches) {
   console.log(`------------------------------------\n`)
   console.log(`🎉 Congratulations!`.green)
   console.log(`🥳 Your Pull Request Succeed\n`.green)
-  console.log(`🧌 Username     : ${username}`.yellow)
+  console.log(`🧌  Username     : ${username}`.yellow)
   console.log(`⚙️  Repository   : ${repoName}`.yellow)
   console.log(`📁 Project      : ${projectName}`.yellow)
   console.log(`🤴 Reviewer     : ${reviewerName}`.yellow)
