@@ -106,6 +106,8 @@ async function createPullRequest(branch) {
 
     console.log(`Pull request created for branch: ${branch}`.green);
   } catch (error) {
+    const branchResult = `${branch}`
+    list_branch_pulled.push(branchResult)
     console.error(`Error creating pull request for branch: ${branch}`, error.response ? error.response.data : error.message);
   }
 }
